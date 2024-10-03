@@ -1,11 +1,10 @@
-package com.almarpa.rickandmortyapp.ui.core.bottomnavigation
+package com.almarpa.rickandmortyapp.ui.core.navigation
 
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.almarpa.rickandmortyapp.ui.core.Routes
 import org.jetbrains.compose.resources.painterResource
 import rickandmortyapp.composeapp.generated.resources.Res
 import rickandmortyapp.composeapp.generated.resources.ic_characters

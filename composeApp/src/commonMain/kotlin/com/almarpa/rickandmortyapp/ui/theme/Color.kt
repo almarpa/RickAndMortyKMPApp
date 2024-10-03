@@ -1,4 +1,4 @@
-package com.almarpa.rickandmortyapp.ui.core
+package com.almarpa.rickandmortyapp.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable

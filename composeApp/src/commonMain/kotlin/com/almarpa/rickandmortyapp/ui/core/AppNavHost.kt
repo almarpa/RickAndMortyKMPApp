@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.almarpa.rickandmortyapp.ui.core.navigation.Routes
 import com.almarpa.rickandmortyapp.ui.home.HomeScreen
 
 @Composable

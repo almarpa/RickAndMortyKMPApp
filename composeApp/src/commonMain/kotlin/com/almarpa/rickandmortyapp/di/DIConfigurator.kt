@@ -6,7 +6,7 @@ import org.koin.dsl.KoinAppDeclaration
 
 expect fun platformModule(): Module
 
-fun initKoin(config:KoinAppDeclaration? = null){
+fun initKoin(config:KoinAppDeclaration? = null) {
     startKoin {
         config?.invoke(this)
         modules(

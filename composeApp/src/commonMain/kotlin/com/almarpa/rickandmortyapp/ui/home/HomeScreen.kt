@@ -19,15 +19,15 @@ import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.almarpa.rickandmortyapp.ui.core.BackgroundPrimaryColor
-import com.almarpa.rickandmortyapp.ui.core.BackgroundSecondaryColor
-import com.almarpa.rickandmortyapp.ui.core.BackgroundTertiaryColor
-import com.almarpa.rickandmortyapp.ui.core.DefaultTextColor
-import com.almarpa.rickandmortyapp.ui.core.Green
-import com.almarpa.rickandmortyapp.ui.core.bottomnavigation.BottomBarItem
-import com.almarpa.rickandmortyapp.ui.core.bottomnavigation.BottomBarItem.Characters
-import com.almarpa.rickandmortyapp.ui.core.bottomnavigation.BottomBarItem.Episodes
-import com.almarpa.rickandmortyapp.ui.core.bottomnavigation.NavigationBottomWrapper
+import com.almarpa.rickandmortyapp.ui.theme.BackgroundPrimaryColor
+import com.almarpa.rickandmortyapp.ui.theme.BackgroundSecondaryColor
+import com.almarpa.rickandmortyapp.ui.theme.BackgroundTertiaryColor
+import com.almarpa.rickandmortyapp.ui.theme.DefaultTextColor
+import com.almarpa.rickandmortyapp.ui.theme.Green
+import com.almarpa.rickandmortyapp.ui.core.navigation.BottomBarItem
+import com.almarpa.rickandmortyapp.ui.core.navigation.BottomBarItem.Characters
+import com.almarpa.rickandmortyapp.ui.core.navigation.BottomBarItem.Episodes
+import com.almarpa.rickandmortyapp.ui.core.navigation.BottomNavigation
 import org.jetbrains.compose.resources.painterResource
 import rickandmortyapp.composeapp.generated.resources.Res
 import rickandmortyapp.composeapp.generated.resources.ricktoolbar
@@ -42,7 +42,7 @@ fun HomeScreen(mainNavController: NavHostController) {
         bottomBar = { BottomNavigation(items, navController) },
     ){ padding ->
         Box(modifier = Modifier.padding(padding)) {
-            NavigationBottomWrapper(navController, mainNavController)
+            BottomNavigation(navController, mainNavController)
         }
     }
 }

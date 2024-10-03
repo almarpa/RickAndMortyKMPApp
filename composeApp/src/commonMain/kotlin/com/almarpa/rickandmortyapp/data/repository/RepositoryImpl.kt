@@ -1,4 +1,4 @@
-package com.almarpa.rickandmortyapp.data
+package com.almarpa.rickandmortyapp.data.repository
 
 import com.almarpa.rickandmortyapp.data.remote.ApiService
 import com.almarpa.rickandmortyapp.domain.Repository

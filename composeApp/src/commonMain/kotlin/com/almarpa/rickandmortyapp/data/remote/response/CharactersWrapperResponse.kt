@@ -1,9 +1,12 @@
 package com.almarpa.rickandmortyapp.data.remote.response
 
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
 data class CharactersWrapperResponse(
-    val info:InfoResponse,
-    val results:List<CharacterResponse>
+    @SerialName("info")
+    val info: InfoResponse,
+    @SerialName("results")
+    val results: List<CharacterResponse>
 )

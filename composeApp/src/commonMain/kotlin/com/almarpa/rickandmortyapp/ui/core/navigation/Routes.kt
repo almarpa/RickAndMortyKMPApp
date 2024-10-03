@@ -1,9 +1,9 @@
-package com.almarpa.rickandmortyapp.ui.core
+package com.almarpa.rickandmortyapp.ui.core.navigation
 
 sealed class Routes(val route:String){
     data object Home: Routes("home")
 
-    //BottomNav
+    // BottomNavigation
     data object Episodes: Routes("episodes")
     data object Characters: Routes("characters")
 }
