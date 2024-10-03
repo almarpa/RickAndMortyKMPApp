@@ -34,7 +34,6 @@ fun <T : Any> PagingWrapper(
     extraItemsView: @Composable () -> Unit = {},
     header: @Composable () -> Unit = {},
 ) {
-
     when {
         pagingItems.loadState.refresh is LoadState.Loading && pagingItems.itemCount == 0 -> {
             initialView()
@@ -45,7 +44,6 @@ fun <T : Any> PagingWrapper(
         }
 
         else -> {
-
             when (pagingType) {
                 ROW -> {
                     LazyRow {
@@ -86,7 +84,6 @@ fun <T : Any> PagingWrapper(
                     }
                 }
             }
-
 
             if (pagingItems.loadState.append is LoadState.Loading) {
                 extraItemsView()
