@@ -1,15 +1,18 @@
 package com.almarpa.rickandmortyapp.domain.impl
 
-import com.almarpa.rickandmortyapp.ui.CharacterUseCase
-import com.almarpa.rickandmortyapp.domain.Repository
+import androidx.paging.PagingData
+import com.almarpa.rickandmortyapp.domain.CharactersRepository
 import com.almarpa.rickandmortyapp.domain.model.CharacterModel
+import com.almarpa.rickandmortyapp.ui.CharacterUseCase
+import kotlinx.coroutines.flow.Flow
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
 import kotlinx.datetime.LocalDateTime
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
 
-class CharacterUseCaseImpl(private val repository: Repository): CharacterUseCase {
+class CharacterUseCaseImpl(private val charactersRepository: CharactersRepository) :
+    CharacterUseCase {
 
     override suspend fun getRandomCharacter(): CharacterModel =
 //        val characterOfTheDay: CharacterOfTheDayModel? = repository.getCharacterDB()
@@ -21,9 +24,13 @@ class CharacterUseCaseImpl(private val repository: Repository): CharacterUseCase
             //repository.saveCharacterDB(CharacterOfTheDayModel(characterModel = it, selectedDay))
         }
 
+    override suspend fun getAllCharacters(): Flow<PagingData<CharacterModel>> {
+        return charactersRepository.getAllCharacters()
+    }
+
     private suspend fun generateRandomCharacter(): CharacterModel {
         val random: Int = (1..826).random()
-        return repository.getSingleCharacter(random.toString())
+        return charactersRepository.getSingleCharacter(random.toString())
     }
 
     private fun getCurrentDayOfTheYear(): String {

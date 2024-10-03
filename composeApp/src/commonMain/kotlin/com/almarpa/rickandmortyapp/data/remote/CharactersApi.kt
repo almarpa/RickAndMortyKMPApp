@@ -7,14 +7,14 @@ import io.ktor.client.call.body
 import io.ktor.client.request.get
 import io.ktor.client.request.parameter
 
-class ApiService(private val client: HttpClient) {
+class CharactersApi(private val client: HttpClient) {
 
-    suspend fun getSingleCharacter(id:String): CharacterResponse {
-         return client.get("/api/character/$id").body()
+    suspend fun getSingleCharacter(id: String): CharacterResponse {
+        return client.get("/api/character/$id").body()
     }
 
-    suspend fun getAllCharacters(page:Int): CharactersWrapperResponse {
-        return client.get("/api/character/"){
+    suspend fun getAllCharacters(page: Int): CharactersWrapperResponse {
+        return client.get("/api/character/") {
             parameter("page", page)
         }.body()
     }

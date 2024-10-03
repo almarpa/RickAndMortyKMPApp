@@ -1,5 +1,6 @@
 package com.almarpa.rickandmortyapp.di
 
+import com.almarpa.rickandmortyapp.data.remote.CharactersApi
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.DefaultRequest
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
@@ -9,13 +10,15 @@ import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 import org.koin.core.module.dsl.factoryOf
 import org.koin.dsl.module
-import com.almarpa.rickandmortyapp.data.remote.ApiService
 
 val apiModule = module {
     single {
         HttpClient {
             install(ContentNegotiation) {
-                json(json = Json { ignoreUnknownKeys = true }, contentType = ContentType.Any)
+                json(
+                    json = Json { ignoreUnknownKeys = true },
+                    contentType = ContentType.Any
+                )
             }
             install(DefaultRequest) {
                 url {
@@ -27,5 +30,5 @@ val apiModule = module {
         }
     }
 
-    factoryOf(::ApiService)
+    factoryOf(::CharactersApi)
 }

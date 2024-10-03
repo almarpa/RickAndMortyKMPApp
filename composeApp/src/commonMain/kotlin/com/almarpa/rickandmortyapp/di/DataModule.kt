@@ -1,9 +1,13 @@
 package com.almarpa.rickandmortyapp.di
 
-import com.almarpa.rickandmortyapp.data.repository.RepositoryImpl
-import com.almarpa.rickandmortyapp.domain.Repository
+import com.almarpa.rickandmortyapp.data.remote.paging.CharactersPagingSource
+import com.almarpa.rickandmortyapp.data.repository.CharactersRepositoryImpl
+import com.almarpa.rickandmortyapp.domain.CharactersRepository
+import org.koin.core.module.dsl.factoryOf
 import org.koin.dsl.module
 
 val dataModule = module {
-    factory <Repository>{ RepositoryImpl(get()) }
+    factory<CharactersRepository> { CharactersRepositoryImpl(get(), get()) }
+    factoryOf(::CharactersPagingSource)
+    //factoryOf(::EpisodesPagingSource)
 }

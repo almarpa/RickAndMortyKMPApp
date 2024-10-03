@@ -17,7 +17,7 @@ kotlin {
             jvmTarget.set(JvmTarget.JVM_11)
         }
     }
-    
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -28,10 +28,10 @@ kotlin {
             isStatic = true
         }
     }
-    
+
     sourceSets {
         task("testClasses")
-        
+
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
@@ -65,6 +65,9 @@ kotlin {
             implementation(libs.coil.network.ktor)
 
             implementation(libs.kotlinx.datetime)
+            
+            implementation(libs.paging.compose.common)
+            implementation(libs.paging.common)
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)
@@ -107,5 +110,8 @@ android {
     dependencies {
         debugImplementation(compose.uiTooling)
     }
+}
+dependencies {
+    implementation(libs.androidx.ui.android)
 }
 
