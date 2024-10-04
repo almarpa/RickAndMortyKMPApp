@@ -3,6 +3,7 @@ package com.almarpa.rickandmortyapp.domain.impl
 import androidx.paging.PagingData
 import com.almarpa.rickandmortyapp.domain.CharactersRepository
 import com.almarpa.rickandmortyapp.domain.model.CharacterModel
+import com.almarpa.rickandmortyapp.domain.model.CharacterOfTheDayModel
 import com.almarpa.rickandmortyapp.ui.CharacterUseCase
 import kotlinx.coroutines.flow.Flow
 import kotlinx.datetime.Clock
@@ -11,18 +12,22 @@ import kotlinx.datetime.LocalDateTime
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
 
-class CharacterUseCaseImpl(private val charactersRepository: CharactersRepository) :
-    CharacterUseCase {
+class CharacterUseCaseImpl(
+    private val charactersRepository: CharactersRepository
+) : CharacterUseCase {
 
-    override suspend fun getRandomCharacter(): CharacterModel =
-//        val characterOfTheDay: CharacterOfTheDayModel? = repository.getCharacterDB()
-//        val selectedDay = getCurrentDayOfTheYear()
-//        return if (characterOfTheDay != null && characterOfTheDay.selectedDay == selectedDay) {
-//            characterOfTheDay.characterModel
-//        } else {
-        generateRandomCharacter().also {
-            //repository.saveCharacterDB(CharacterOfTheDayModel(characterModel = it, selectedDay))
+    override suspend fun getRandomCharacter(): CharacterModel {
+        val characterOfTheDay: CharacterOfTheDayModel? = charactersRepository.getCharacterLocal()
+        val selectedDay = getCurrentDayOfTheYear()
+        return if (characterOfTheDay != null && characterOfTheDay.selectedDay == selectedDay) {
+            characterOfTheDay.characterModel
+        } else {
+            generateRandomCharacter().also { randomCharacter ->
+                saveCharacterOfTheDay(randomCharacter, selectedDay)
+            }
         }
+    }
+
 
     override suspend fun getAllCharacters(): Flow<PagingData<CharacterModel>> {
         return charactersRepository.getAllCharacters()
@@ -37,5 +42,17 @@ class CharacterUseCaseImpl(private val charactersRepository: CharactersRepositor
         val instant: Instant = Clock.System.now()
         val localTime: LocalDateTime = instant.toLocalDateTime(TimeZone.currentSystemDefault())
         return "${localTime.dayOfYear}${localTime.year}"
+    }
+
+    private suspend fun saveCharacterOfTheDay(
+        randomCharacter: CharacterModel,
+        selectedDay: String
+    ) {
+        charactersRepository.saveCharacterLocal(
+            CharacterOfTheDayModel(
+                characterModel = randomCharacter,
+                selectedDay = selectedDay
+            )
+        )
     }
 }

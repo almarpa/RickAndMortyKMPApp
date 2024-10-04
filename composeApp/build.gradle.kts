@@ -65,9 +65,12 @@ kotlin {
             implementation(libs.coil.network.ktor)
 
             implementation(libs.kotlinx.datetime)
-            
+
             implementation(libs.paging.compose.common)
             implementation(libs.paging.common)
+
+            implementation(libs.room.runtime)
+            implementation(libs.androidx.sqlite.bundled)
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)
@@ -111,7 +114,15 @@ android {
         debugImplementation(compose.uiTooling)
     }
 }
-dependencies {
-    implementation(libs.androidx.ui.android)
+
+ksp {
+    arg("room.schemaLocation", "${projectDir}/schemas")
 }
 
+dependencies {
+    add("kspCommonMainMetadata", libs.room.compiler)
+    add("kspAndroid", libs.room.compiler)
+    add("kspIosX64", libs.room.compiler)
+    add("kspIosArm64", libs.room.compiler)
+    add("kspIosSimulatorArm64", libs.room.compiler)
+}
