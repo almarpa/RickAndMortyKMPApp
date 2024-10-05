@@ -1,6 +1,7 @@
 package com.almarpa.rickandmortyapp.di
 
 import com.almarpa.rickandmortyapp.data.remote.CharactersApi
+import com.almarpa.rickandmortyapp.data.remote.EpisodesApi
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.DefaultRequest
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
@@ -31,4 +32,5 @@ val apiModule = module {
     }
 
     factoryOf(::CharactersApi)
+    factoryOf(::EpisodesApi)
 }
