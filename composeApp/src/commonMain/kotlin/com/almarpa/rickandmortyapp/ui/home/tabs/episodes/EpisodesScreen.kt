@@ -43,6 +43,7 @@ import com.almarpa.rickandmortyapp.domain.model.SeasonEpisode.UNKNOWN
 import com.almarpa.rickandmortyapp.ui.core.components.PagingLoadingState
 import com.almarpa.rickandmortyapp.ui.core.components.PagingType
 import com.almarpa.rickandmortyapp.ui.core.components.PagingWrapper
+import com.almarpa.rickandmortyapp.ui.core.components.VideoPlayer
 import com.almarpa.rickandmortyapp.ui.theme.BackgroundPrimaryColor
 import com.almarpa.rickandmortyapp.ui.theme.DefaultTextColor
 import com.almarpa.rickandmortyapp.ui.theme.PlaceholderColor
@@ -93,12 +94,12 @@ fun EpisodePlayer(playVideo: String, onCloseVideo: () -> Unit) {
             ) {
                 Box(modifier = Modifier.fillMaxSize().background(Color.Black)) {
                     Box(modifier = Modifier.padding(16.dp), contentAlignment = Alignment.Center) {
-                        // TODO: Add video player
+                        VideoPlayer(Modifier.fillMaxWidth().height(200.dp), playVideo)
                     }
                     Row {
                         Spacer(modifier = Modifier.weight(1f))
                         Image(painter = painterResource(Res.drawable.portal),
-                            "",
+                            "portal_icon",
                             modifier = Modifier.padding(8.dp).size(40.dp)
                                 .clickable { onCloseVideo() })
                     }
