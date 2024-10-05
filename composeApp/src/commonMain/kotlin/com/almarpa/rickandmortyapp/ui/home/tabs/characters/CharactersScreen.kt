@@ -62,7 +62,8 @@ fun CharactersGridList(
     state: CharactersState,
     navigateToDetail: (CharacterModel) -> Unit,
 ) {
-    PagingWrapper(pagingType = PagingType.VERTICAL_GRID,
+    PagingWrapper(
+        pagingType = PagingType.VERTICAL_GRID,
         pagingItems = characters,
         initialView = { PagingLoadingState() },
         itemView = { CharacterItemList(it) { characterModel -> navigateToDetail(characterModel) } },
