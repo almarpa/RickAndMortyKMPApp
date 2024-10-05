@@ -29,7 +29,7 @@ class CharacterUseCaseImpl(
     }
 
 
-    override suspend fun getAllCharacters(): Flow<PagingData<CharacterModel>> {
+    override fun getAllCharacters(): Flow<PagingData<CharacterModel>> {
         return charactersRepository.getAllCharacters()
     }
 

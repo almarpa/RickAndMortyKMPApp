@@ -43,12 +43,10 @@ class CharactersViewModel(
 
     private fun getAllCharacters() {
         viewModelScope.launch {
-            withContext(Dispatchers.IO) {
-                _state.update { state ->
-                    state.copy(
-                        characters = getCharacterUseCase.getAllCharacters().cachedIn(viewModelScope)
-                    )
-                }
+            _state.update { state ->
+                state.copy(
+                    characters = getCharacterUseCase.getAllCharacters().cachedIn(viewModelScope)
+                )
             }
         }
     }

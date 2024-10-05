@@ -16,7 +16,6 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -30,6 +29,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import app.cash.paging.compose.LazyPagingItems
 import app.cash.paging.compose.collectAsLazyPagingItems
 import coil3.compose.AsyncImage
@@ -50,7 +50,7 @@ import rickandmortyapp.composeapp.generated.resources.rickface
 @Composable
 fun CharactersScreen(navigateToDetail: (CharacterModel) -> Unit) {
     val charactersViewModel = koinViewModel<CharactersViewModel>()
-    val state by charactersViewModel.state.collectAsState()
+    val state by charactersViewModel.state.collectAsStateWithLifecycle()
     val characters: LazyPagingItems<CharacterModel> = state.characters.collectAsLazyPagingItems()
 
     CharactersGridList(characters, state, navigateToDetail)
