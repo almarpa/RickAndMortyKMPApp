@@ -20,17 +20,11 @@ actual fun VideoPlayer(modifier: Modifier, url: String) {
     UIKitView(
         modifier = modifier,
         factory = {
-            val container = UIView().apply {
-                autoresizingMask =
-                    UIViewAutoresizingFlexibleWidth or UIViewAutoresizingFlexibleHeight
-            }
-
+            val container = UIView().apply { autoresizingMask = getMask() }
             webView.apply {
-                autoresizingMask =
-                    UIViewAutoresizingFlexibleWidth or UIViewAutoresizingFlexibleHeight
+                autoresizingMask = getMask()
                 loadRequest(NSURLRequest(NSURL(string = url)))
             }
-
             container.addSubview(webView)
             container
         },
@@ -39,3 +33,5 @@ actual fun VideoPlayer(modifier: Modifier, url: String) {
         }
     )
 }
+
+private fun getMask() = UIViewAutoresizingFlexibleWidth or UIViewAutoresizingFlexibleHeight
