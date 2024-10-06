@@ -1,12 +1,17 @@
 package com.almarpa.rickandmortyapp.ui.core.navigation
 
-sealed class Routes(val route:String){
-    data object Home: Routes("home")
+import kotlinx.serialization.Serializable
 
-    // BottomNavigation
-    data object Episodes: Routes("episodes")
-    data object Characters: Routes("characters")
+/**
+ * Destinations used throughout the app.
+ */
+sealed class Routes {
+    @Serializable
+    data object Home : Routes()
+
+    @Serializable
+    data object Episodes : Routes()
+
+    @Serializable
+    data object Characters : Routes()
 }
-
-//@Serializable
-//data class CharacterDetail(val characterModel: String)

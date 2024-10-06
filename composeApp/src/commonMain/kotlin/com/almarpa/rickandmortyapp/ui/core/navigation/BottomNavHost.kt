@@ -8,21 +8,20 @@ import com.almarpa.rickandmortyapp.ui.home.tabs.characters.CharactersScreen
 import com.almarpa.rickandmortyapp.ui.home.tabs.episodes.EpisodesScreen
 
 @Composable
-fun BottomNavigation(navController: NavHostController, mainNavController: NavHostController) {
-
-    NavHost(navController = navController, startDestination = Routes.Episodes.route) {
-
-        composable(route = Routes.Episodes.route) {
+fun BottomNavHost(navController: NavHostController, navigationActions: NavigationActions) {
+    NavHost(
+        navController = navController,
+        startDestination = Routes.Episodes
+    ) {
+        composable<Routes.Episodes> {
             EpisodesScreen()
         }
-
-        composable(route = Routes.Characters.route) {
+        composable<Routes.Characters> {
             CharactersScreen(
-                navigateToDetail = { characterModel ->
-                    // mainNavController.navigate(CharacterDetail(encode))
+                navigateToDetail = { character ->
+                    navigationActions.navigateToCharacterDetail(character)
                 }
             )
         }
     }
-
 }

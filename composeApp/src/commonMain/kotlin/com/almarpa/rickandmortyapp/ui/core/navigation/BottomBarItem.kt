@@ -11,29 +11,29 @@ import rickandmortyapp.composeapp.generated.resources.ic_characters
 import rickandmortyapp.composeapp.generated.resources.ic_player
 
 sealed class BottomBarItem {
-    abstract val route: String
+    abstract val route: Routes
     abstract val title: String
     abstract val icon: @Composable () -> Unit
 
     data class Episodes(
-        override val route: String = Routes.Episodes.route,
+        override val route: Routes = Routes.Episodes,
         override val title: String = "Episodes",
         override val icon: @Composable () -> Unit = {
             Icon(
                 painter = painterResource(Res.drawable.ic_player),
-                "",
+                "episodesTabItem",
                 modifier = Modifier.size(24.dp)
             )
         }
     ) : BottomBarItem()
 
     data class Characters(
-        override val route: String = Routes.Characters.route,
+        override val route: Routes = Routes.Characters,
         override val title: String = "Characters",
         override val icon: @Composable () -> Unit = {
             Icon(
                 painter = painterResource(Res.drawable.ic_characters),
-                "",
+                "charactersTabItem",
                 modifier = Modifier.size(24.dp)
             )
         }
