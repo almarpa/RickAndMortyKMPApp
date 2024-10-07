@@ -33,7 +33,7 @@ import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
 import com.almarpa.rickandmortyapp.domain.model.CharacterModel
 import com.almarpa.rickandmortyapp.domain.model.EpisodeModel
-import com.almarpa.rickandmortyapp.ui.core.components.InformationDetail
+import com.almarpa.rickandmortyapp.ui.core.components.TextDetail
 import com.almarpa.rickandmortyapp.ui.core.components.TextTitle
 import com.almarpa.rickandmortyapp.ui.core.extensions.aliveBorder
 import com.almarpa.rickandmortyapp.ui.theme.BackgroundPrimaryColor
@@ -116,9 +116,9 @@ fun CharacterInformation(characterModel: CharacterModel) {
         Column(modifier = Modifier.padding(16.dp)) {
             TextTitle("About the character")
             Spacer(Modifier.height(6.dp))
-            InformationDetail("Origin", characterModel.origin)
+            TextDetail("Origin", characterModel.origin)
             Spacer(Modifier.height(2.dp))
-            InformationDetail("Gender", characterModel.gender)
+            TextDetail("Gender", characterModel.gender)
         }
     }
 }

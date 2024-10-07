@@ -37,6 +37,7 @@ kotlin {
             implementation(libs.androidx.activity.compose)
             implementation(libs.koin.android)
             implementation(libs.ktor.client.okhttp)
+            implementation(libs.androidx.ui.tooling.preview.android)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -110,9 +111,6 @@ android {
     buildFeatures {
         compose = true
     }
-    dependencies {
-        debugImplementation(compose.uiTooling)
-    }
 }
 
 ksp {
@@ -125,4 +123,5 @@ dependencies {
     add("kspIosX64", libs.room.compiler)
     add("kspIosArm64", libs.room.compiler)
     add("kspIosSimulatorArm64", libs.room.compiler)
+    debugImplementation(libs.androidx.compose.ui.tooling)
 }

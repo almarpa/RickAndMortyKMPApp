@@ -12,7 +12,7 @@ import com.almarpa.rickandmortyapp.ui.theme.DefaultTextColor
 import com.almarpa.rickandmortyapp.ui.theme.Green
 
 @Composable
-fun InformationDetail(title: String, detail: String) {
+fun TextDetail(title: String, detail: String) {
     Row {
         Text(title, color = DefaultTextColor, fontWeight = FontWeight.Bold)
         Spacer(Modifier.width(4.dp))
