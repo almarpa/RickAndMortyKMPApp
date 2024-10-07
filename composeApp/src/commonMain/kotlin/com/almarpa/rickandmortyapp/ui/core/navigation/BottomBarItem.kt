@@ -15,18 +15,6 @@ sealed class BottomBarItem {
     abstract val title: String
     abstract val icon: @Composable () -> Unit
 
-    data class Episodes(
-        override val route: Routes = Routes.Episodes,
-        override val title: String = "Episodes",
-        override val icon: @Composable () -> Unit = {
-            Icon(
-                painter = painterResource(Res.drawable.ic_player),
-                "episodesTabItem",
-                modifier = Modifier.size(24.dp)
-            )
-        }
-    ) : BottomBarItem()
-
     data class Characters(
         override val route: Routes = Routes.Characters,
         override val title: String = "Characters",
@@ -34,6 +22,18 @@ sealed class BottomBarItem {
             Icon(
                 painter = painterResource(Res.drawable.ic_characters),
                 "charactersTabItem",
+                modifier = Modifier.size(24.dp)
+            )
+        }
+    ) : BottomBarItem()
+
+    data class Episodes(
+        override val route: Routes = Routes.Episodes,
+        override val title: String = "Episodes",
+        override val icon: @Composable () -> Unit = {
+            Icon(
+                painter = painterResource(Res.drawable.ic_player),
+                "episodesTabItem",
                 modifier = Modifier.size(24.dp)
             )
         }

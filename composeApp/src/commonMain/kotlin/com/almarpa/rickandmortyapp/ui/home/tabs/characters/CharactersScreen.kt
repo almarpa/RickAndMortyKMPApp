@@ -5,7 +5,6 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -24,7 +23,6 @@ import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -38,7 +36,6 @@ import com.almarpa.rickandmortyapp.ui.core.components.PagingLoadingState
 import com.almarpa.rickandmortyapp.ui.core.components.PagingType
 import com.almarpa.rickandmortyapp.ui.core.components.PagingWrapper
 import com.almarpa.rickandmortyapp.ui.core.extensions.vertical
-import com.almarpa.rickandmortyapp.ui.theme.DefaultTextColor
 import com.almarpa.rickandmortyapp.ui.theme.Green
 import org.jetbrains.compose.resources.painterResource
 import org.koin.compose.viewmodel.koinViewModel
@@ -69,13 +66,6 @@ fun CharactersGridList(
         itemView = { CharacterItemList(it) { characterModel -> navigateToDetail(characterModel) } },
         header = {
             Column {
-                Text(
-                    "Characters",
-                    color = DefaultTextColor,
-                    fontSize = 24.sp,
-                    fontWeight = FontWeight.SemiBold
-                )
-                Spacer(Modifier.height(6.dp))
                 CharacterOfTheDay(state.characterOfTheDay)
             }
         })
