@@ -12,10 +12,10 @@ This is a Kotlin Multiplatform project targeting Android, iOS.
 
 
 * `Snapshots:`
-
-
-![image](https://github.com/almarpa/RickAndMortyApp/blob/develop/composeApp/src/commonMain/snapshots/1.png?raw=true|width=10)
-![image](https://github.com/almarpa/RickAndMortyApp/blob/develop/composeApp/src/commonMain/snapshots/2.png?raw=true)
-![image](https://github.com/almarpa/RickAndMortyApp/blob/develop/composeApp/src/commonMain/snapshots/3.png?raw=true)
-![image](https://github.com/almarpa/RickAndMortyApp/blob/develop/composeApp/src/commonMain/snapshots/4.png?raw=true)
-![image](https://github.com/almarpa/RickAndMortyApp/blob/develop/composeApp/src/commonMain/snapshots/5.png?raw=true)
+<h3>
+<img src="https://github.com/almarpa/RickAndMortyApp/blob/develop/composeApp/src/commonMain/snapshots/1.png?raw=true" width=30% height=50%>
+<img src="https://github.com/almarpa/RickAndMortyApp/blob/develop/composeApp/src/commonMain/snapshots/2.png?raw=true" width=30% height=50%>
+<img src="https://github.com/almarpa/RickAndMortyApp/blob/develop/composeApp/src/commonMain/snapshots/3.png?raw=true" width=30% height=50%>
+<img src="https://github.com/almarpa/RickAndMortyApp/blob/develop/composeApp/src/commonMain/snapshots/4.png?raw=true" width=30% height=50%>
+<img src="https://github.com/almarpa/RickAndMortyApp/blob/develop/composeApp/src/commonMain/snapshots/5.png?raw=true" width=30% height=50%>
+</h3>
