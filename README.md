@@ -13,3 +13,4 @@ This is a Kotlin Multiplatform project targeting Android, iOS.
 
 * `Snapshots:`
 
+https://github.com/almarpa/RickAndMortyApp/blob/develop/composeApp/src/commonMain/snapshots/1.png?raw=true
